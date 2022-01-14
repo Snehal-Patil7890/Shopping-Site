@@ -1,0 +1,27 @@
+﻿@model Shopping_Site.Models.ShoppingProduct
+@{
+    ViewBag.Title = "Add";
+    Layout = "~/Views/Shared/_Layout1.cshtml";
+}
+
+<form action="/products/add/@Model.ProductID" method="post">
+    <input type="hidden" name="ProductID" value="@Model.ProductID" />
+    <table class="table">
+        <tr>
+            <td>Product Name</td>
+            <td>@Model.ProductName</td>
+        </tr>
+        <tr>
+            <td>Price</td>
+            <td>@Model.ProductPrice.Value.ToString("C")</td>
+        </tr>
+        <tr>
+            <td>Product Description</td>
+            <td>@Model.ProductDescription</td>
+        </tr>
+    </table>
+        <button type="submit" class="btn btn-success">Add</button>
+        <a class="btn btn-danger" href="/products/index">Cancel</a>
+</form>
+
+

@@ -1,0 +1,30 @@
+﻿@model List<Shopping_Site.Models.Cart>
+@{
+    ViewBag.Title = "Mycart";
+    Layout = "~/Views/Shared/_Layout1.cshtml";
+}
+
+<h2>Mycart</h2>
+<table class="table">
+    <tr>
+        <th>Product Name</th>
+        <th>Price</th>
+    </tr>
+    @{decimal Total=0.0m;}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.ProductName</td>
+            <td>@item.ProductPrice.Value.ToString("C")</td>
+            <td>
+                <a class="text-danger" href="/products/remove/@item.CartID">Remove</a>
+            </td>
+        </tr>
+        Total+=Convert.ToDecimal(@item.ProductPrice);
+    }
+    <tr>
+        <td class="text-dark">Total:</td>
+        <td>@Total.ToString("C")</td>
+    </tr>
+</table>
+

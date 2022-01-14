@@ -1,0 +1,38 @@
+﻿
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+}
+
+<center>
+    <br />
+    <h1>Login</h1>
+    <br />
+    <form action="/home/login" method="post" enctype="multipart/form-data">
+        <table>
+            <tr>
+                <td><label for="UserName">UserName:</label></td>
+                <td><input type="text" id="UserName" name="UserName" placeholder="Enter Your Username" /></td>
+            </tr>
+            <tr>
+                <td><label for="Password">Password:</label></td>
+                <td><input type="password" id="Password" name="Password" placeholder="Enter Your Password" /></td>
+            </tr>
+        </table>
+        <br />
+        <button type="submit" class="btn btn-primary">Submit</button>
+        <br />
+        <div>
+            if you are not a registered user
+            <a href="/home/register">Register Now</a>
+        </div>
+    </form>
+</center>
+@if(ViewBag.message!=null)
+    {
+        <script type="text/javascript">
+            window.onload = function () {
+                alert("Invalid Login");
+            };
+        </script>
+    }

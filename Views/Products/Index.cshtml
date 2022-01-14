@@ -1,0 +1,25 @@
+﻿@model List<Shopping_Site.Models.ShoppingProduct>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout1.cshtml";
+}
+
+<table class="table">
+    <tr>
+        <th>Product Name</th>
+        <th>Price</th>
+        <th>Description</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.ProductName</td>
+            <td>@item.ProductPrice.Value.ToString("C")</td>
+            <td>@item.ProductDescription</td>
+            <td>
+                <a href="/products/add/@item.ProductID">Add to Cart</a>
+            </td>
+        </tr>
+    }
+</table>
+
